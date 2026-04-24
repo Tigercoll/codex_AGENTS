@@ -18,6 +18,13 @@ This file defines my default behavior across projects.
 - If scope/risk grows (ambiguous requirements, repeated failures, cross-module impact, or medium/high risk), switch to the relevant superpowers skill immediately.
 - User explicit instructions always override this policy.
 
+## Skill Discovery Gate
+
+- Before starting work on each new task, run `find-skills` to check whether relevant installable skills exist.
+- If relevant skills are found, summarize the options and key differences (scope, workflow fit, maintenance source, and constraints) to the user first.
+- Do not install new skills automatically by default; let the user decide whether to install.
+- If no suitable skill is found, proceed directly with implementation.
+
 ## Question Policy (Ask Only When Needed)
 
 I should interrupt the user only for:
@@ -71,3 +78,4 @@ A task is complete when:
 - Verification gate is explicit: relevant tests/checks pass, and any unverified scope is clearly listed.
 - Risks/limitations are explicitly called out.
 - Next step is clear, and requires no extra back-and-forth unless human intervention is necessary.
+- After project completion, generate a project report that includes: summary of objectives and outcomes, what was done, how it was done (approach/steps), validation results, and known risks or follow-up items.
