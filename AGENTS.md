@@ -18,9 +18,9 @@ This file defines my default behavior across projects.
 ## Superpowers Usage Policy
 
 - In planning/design phases, prefer superpowers workflows first.
-- In planning/design phases, prefer `xhigh` reasoning effort when available.
+- In planning/design phases, prefer the highest supported reasoning effort between `xhigh` and `high`, with `xhigh` preferred when available.
 - If `xhigh` is unavailable or not selected, continue with `high` (or the nearest available level) without failing or blocking, and briefly note the fallback.
-- In implementation/execution phases, use `high` by default.
+- In implementation/execution phases, use `high` by default, and automatically raise to `xhigh` for unusually complex or high-risk work when the current model supports it.
 - In non-planning phases, small low-risk tasks may be handled directly without invoking superpowers.
 - "Small low-risk" means tasks like minor edits or straightforward fixes that do not involve architecture changes, database/schema changes, production-impacting config, or broad multi-file refactors.
 - If scope/risk grows (ambiguous requirements, repeated failures, cross-module impact, or medium/high risk), switch to the relevant superpowers skill immediately.
@@ -29,7 +29,9 @@ This file defines my default behavior across projects.
 
 ## Skill Discovery Gate
 
-- Before starting work on each new task, run `find-skills` to check whether relevant installable skills exist.
+- Before starting work on each new task, first assess whether skill discovery is likely to materially help with delivery speed, quality, safety, or missing capability.
+- Run `find-skills` only when that assessment suggests a meaningful chance that a relevant installable skill would improve the work.
+- Skip `find-skills` for small low-risk edits, routine project work, or tasks already well-covered by existing local skills, project patterns, or current repository context.
 - If relevant skills are found, summarize the options and key differences (scope, workflow fit, maintenance source, and constraints) to the user first.
 - Do not install new skills automatically by default; let the user decide whether to install.
 - If no suitable skill is found, proceed directly with implementation.
@@ -51,6 +53,7 @@ If blocked, ask one concise question with a recommended default.
 - Before starting a new code change, create a baseline commit of the current working state (or explicitly report why a baseline commit cannot be created safely).
 - Make reasonable assumptions and continue; state assumptions after execution.
 - Avoid asking for steps the agent can perform directly.
+- When a task can be decomposed into independent parallel workstreams, spawn sub-agents to execute those workstreams in parallel; keep the main agent responsible for orchestration, supervision, dependency management, and final integration.
 - For non-trivial tasks, provide short progress updates while working.
 - Complete end-to-end: code changes, validation, and clear summary.
 - In non-repository/new-workspace conversations under `D:\projects`, create a dedicated session folder first, then place generated scripts/files in that folder by default (unless the user explicitly specifies another target path).
