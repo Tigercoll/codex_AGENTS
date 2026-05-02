@@ -42,11 +42,14 @@ This file defines my default behavior across projects.
 ## Agency-Oriented Orchestration Model
 
 - Use role templates from the `agency-agents` project as the default sub-agent operating model.
+- Store canonical `agency-agents` role templates under `C:\Users\Tiger\.codex\agents\agency-agents\`.
+- Store the canonical expert registry at `C:\Users\Tiger\.codex\agents\agency-agent-map.json` and the human-readable index at `C:\Users\Tiger\.codex\agents\agency-agent-map.md`.
 - Treat the main thread as an `Agents Orchestrator` style controller.
 - Treat `project-manager-senior` as the default planner agent for non-simple tasks.
 - Treat `project-management-project-shepherd` as the dependency, risk, and cross-stream coordination role when the work involves multiple streams, sequencing, or sustained execution tracking.
 - Treat domain specialists from `agency-agents` as execution roles selected per task type, such as frontend, backend, senior developer, architect, design, product, testing, review, or operations roles.
 - Treat testing and validation roles such as evidence collection, code review, reality check, API testing, or performance benchmarking as independent validation streams when relevant.
+- The main thread must consult the registry before delegating to an expert role; do not select role templates ad hoc when a mapped role exists.
 - If the environment cannot spawn a named `agency-agents` role natively, spawn a local sub-agent and instruct it to operate according to the corresponding `agency-agents` role template rather than skipping delegation.
 - The role template defines the sub-agent's style and responsibility, but local environment safety rules, system rules, and user instructions still take precedence.
 
@@ -71,6 +74,7 @@ If blocked, ask one concise question with a recommended default.
 - Avoid asking for steps the agent can perform directly.
 - For `simple-single-stream` work, the main thread may skip planner generation and directly assign one appropriate specialist sub-agent, while retaining supervision and final integration responsibility.
 - For `non-simple-multi-step` work, the main thread must first delegate planning to the `project-manager-senior` style planner agent before assigning execution work.
+- Role assignment should resolve through `C:\Users\Tiger\.codex\agents\agency-agent-map.json` first, then load the mapped template file from `C:\Users\Tiger\.codex\agents\agency-agents\`.
 - The planner output must define task decomposition, dependency order, parallelizable work groups, recommended specialist role per task, acceptance criteria, validation requirements, and known risks or assumptions.
 - After planner output is received, the main thread is responsible for translating the plan into delegated execution streams.
 - When a task can be decomposed into independent parallel workstreams, spawn sub-agents to execute those workstreams in parallel.
@@ -78,6 +82,8 @@ If blocked, ask one concise question with a recommended default.
 - Parallel execution must use explicit ownership boundaries. Prefer disjoint files, modules, or responsibilities per sub-agent.
 - Do not allow multiple execution agents to mutate the same file or tightly coupled surface concurrently unless the plan explicitly requires it and the main thread has a merge or integration strategy.
 - The main thread should provide each sub-agent with exact scope, expected deliverable, relevant context, constraints, forbidden actions, validation target, ownership boundaries, and whether the sub-agent is read-only or allowed to modify code.
+- Controlled second-level delegation is allowed: the main thread may delegate to first-level sub-agents, and first-level sub-agents may delegate to second-level sub-agents within their assigned scope. Second-level sub-agents must not continue delegation further.
+- Any reprioritization, cross-stream dependency change, or plan change discovered by a first-level sub-agent must be escalated back to the main thread rather than decided independently.
 - If a subtask fails, the main thread should reassign, retry with clearer instructions, replan, or escalate. The main thread should not jump into direct implementation except where delegation is impossible and the user has explicitly allowed that operating mode.
 - If the same issue fails 3 focused attempts or shows no meaningful progress for a sustained period, escalate with: current blocker, recommended path, and fallback path.
 - For non-trivial tasks, provide short progress updates while working.
