@@ -1,0 +1,241 @@
+{
+  "category_dirs": [
+    "academic",
+    "design",
+    "engineering",
+    "finance",
+    "game-development",
+    "marketing",
+    "paid-media",
+    "product",
+    "project-management",
+    "sales",
+    "spatial-computing",
+    "specialized",
+    "strategy",
+    "support",
+    "testing"
+  ],
+  "auto_route_profiles": {
+    "orchestrator": {
+      "id": "agents-orchestrator",
+      "relativePath": "specialized/agents-orchestrator.md",
+      "label": "Agents Orchestrator",
+      "mode": "orchestrator",
+      "spawn_as": "worker",
+      "aliases": ["orchestrator", "agency-orchestrator", "workflow-orchestrator"],
+      "auto_route": true,
+      "may_delegate_children": true,
+      "recommended_child_depth_limit": 1
+    },
+    "planner": {
+      "id": "project-manager-senior",
+      "relativePath": "project-management/project-manager-senior.md",
+      "label": "Senior Project Manager",
+      "mode": "planner",
+      "spawn_as": "worker",
+      "aliases": ["planner", "pm", "project-manager", "plan", "planner-agent"],
+      "auto_route": true,
+      "may_delegate_children": true,
+      "recommended_child_depth_limit": 1
+    },
+    "project_shepherd": {
+      "id": "project-management-project-shepherd",
+      "relativePath": "project-management/project-management-project-shepherd.md",
+      "label": "Project Shepherd",
+      "mode": "coordinator",
+      "spawn_as": "worker",
+      "aliases": ["project-shepherd", "project_shepherd", "cross-stream-coordinator"],
+      "auto_route": true,
+      "may_delegate_children": true,
+      "recommended_child_depth_limit": 1
+    },
+    "frontend_expert": {
+      "id": "engineering-frontend-developer",
+      "relativePath": "engineering/engineering-frontend-developer.md",
+      "label": "Frontend Developer",
+      "mode": "executor",
+      "spawn_as": "worker",
+      "aliases": ["frontend", "frontend-developer", "ui-engineer", "frontend_expert"],
+      "auto_route": true,
+      "may_delegate_children": true,
+      "recommended_child_depth_limit": 1
+    },
+    "backend_architect": {
+      "id": "engineering-backend-architect",
+      "relativePath": "engineering/engineering-backend-architect.md",
+      "label": "Backend Architect",
+      "mode": "executor",
+      "spawn_as": "worker",
+      "aliases": ["backend", "backend-architect", "api-architect", "backend_architect"],
+      "auto_route": true,
+      "may_delegate_children": true,
+      "recommended_child_depth_limit": 1
+    },
+    "senior_engineer": {
+      "id": "engineering-senior-developer",
+      "relativePath": "engineering/engineering-senior-developer.md",
+      "label": "Senior Developer",
+      "mode": "executor",
+      "spawn_as": "worker",
+      "aliases": ["senior-engineer", "senior-developer", "implementation-lead", "senior_engineer"],
+      "auto_route": true,
+      "may_delegate_children": true,
+      "recommended_child_depth_limit": 1
+    },
+    "software_architect": {
+      "id": "engineering-software-architect",
+      "relativePath": "engineering/engineering-software-architect.md",
+      "label": "Software Architect",
+      "mode": "architect",
+      "spawn_as": "worker",
+      "aliases": ["software-architect", "architect", "system-architect", "software_architect"],
+      "auto_route": true,
+      "may_delegate_children": true,
+      "recommended_child_depth_limit": 1
+    },
+    "rapid_prototyper": {
+      "id": "engineering-rapid-prototyper",
+      "relativePath": "engineering/engineering-rapid-prototyper.md",
+      "label": "Rapid Prototyper",
+      "mode": "executor",
+      "spawn_as": "worker",
+      "aliases": ["rapid-prototyper", "prototype", "mvp-builder", "rapid_prototyper"],
+      "auto_route": true,
+      "may_delegate_children": true,
+      "recommended_child_depth_limit": 1
+    },
+    "mobile_builder": {
+      "id": "engineering-mobile-app-builder",
+      "relativePath": "engineering/engineering-mobile-app-builder.md",
+      "label": "Mobile App Builder",
+      "mode": "executor",
+      "spawn_as": "worker",
+      "aliases": ["mobile", "mobile-builder", "mobile-app-builder", "mobile_builder"],
+      "auto_route": true,
+      "may_delegate_children": true,
+      "recommended_child_depth_limit": 1
+    },
+    "devops_automator": {
+      "id": "engineering-devops-automator",
+      "relativePath": "engineering/engineering-devops-automator.md",
+      "label": "DevOps Automator",
+      "mode": "executor",
+      "spawn_as": "worker",
+      "aliases": ["devops", "devops-automator", "infra", "devops_automator"],
+      "auto_route": true,
+      "may_delegate_children": true,
+      "recommended_child_depth_limit": 1
+    },
+    "ui_designer": {
+      "id": "design-ui-designer",
+      "relativePath": "design/design-ui-designer.md",
+      "label": "UI Designer",
+      "mode": "design",
+      "spawn_as": "worker",
+      "aliases": ["ui-designer", "ui", "visual-design", "ui_designer"],
+      "auto_route": true,
+      "may_delegate_children": false,
+      "recommended_child_depth_limit": 0
+    },
+    "ux_architect": {
+      "id": "design-ux-architect",
+      "relativePath": "design/design-ux-architect.md",
+      "label": "UX Architect",
+      "mode": "design",
+      "spawn_as": "worker",
+      "aliases": ["ux-architect", "ux", "experience-architect", "ux_architect"],
+      "auto_route": true,
+      "may_delegate_children": false,
+      "recommended_child_depth_limit": 0
+    },
+    "ux_researcher": {
+      "id": "design-ux-researcher",
+      "relativePath": "design/design-ux-researcher.md",
+      "label": "UX Researcher",
+      "mode": "research",
+      "spawn_as": "worker",
+      "aliases": ["ux-researcher", "user-research", "ux_researcher"],
+      "auto_route": true,
+      "may_delegate_children": false,
+      "recommended_child_depth_limit": 0
+    },
+    "product_manager": {
+      "id": "product-manager",
+      "relativePath": "product/product-manager.md",
+      "label": "Product Manager",
+      "mode": "product",
+      "spawn_as": "worker",
+      "aliases": ["product-manager", "pm-product", "product_manager"],
+      "auto_route": true,
+      "may_delegate_children": false,
+      "recommended_child_depth_limit": 0
+    },
+    "sprint_prioritizer": {
+      "id": "product-sprint-prioritizer",
+      "relativePath": "product/product-sprint-prioritizer.md",
+      "label": "Sprint Prioritizer",
+      "mode": "product",
+      "spawn_as": "worker",
+      "aliases": ["sprint-prioritizer", "prioritizer", "backlog", "sprint_prioritizer"],
+      "auto_route": true,
+      "may_delegate_children": false,
+      "recommended_child_depth_limit": 0
+    },
+    "feedback_synthesizer": {
+      "id": "product-feedback-synthesizer",
+      "relativePath": "product/product-feedback-synthesizer.md",
+      "label": "Feedback Synthesizer",
+      "mode": "product",
+      "spawn_as": "worker",
+      "aliases": ["feedback-synthesizer", "feedback", "feedback_synthesizer"],
+      "auto_route": true,
+      "may_delegate_children": false,
+      "recommended_child_depth_limit": 0
+    },
+    "code_reviewer": {
+      "id": "engineering-code-reviewer",
+      "relativePath": "engineering/engineering-code-reviewer.md",
+      "label": "Code Reviewer",
+      "mode": "reviewer",
+      "spawn_as": "worker",
+      "aliases": ["code-reviewer", "reviewer", "review", "code_reviewer"],
+      "auto_route": true,
+      "may_delegate_children": false,
+      "recommended_child_depth_limit": 0
+    },
+    "qa_validator": {
+      "id": "testing-evidence-collector",
+      "relativePath": "testing/testing-evidence-collector.md",
+      "label": "Evidence Collector",
+      "mode": "qa",
+      "spawn_as": "worker",
+      "aliases": ["qa", "qa-validator", "evidence-collector", "qa_validator"],
+      "auto_route": true,
+      "may_delegate_children": false,
+      "recommended_child_depth_limit": 0
+    },
+    "reality_checker": {
+      "id": "testing-reality-checker",
+      "relativePath": "testing/testing-reality-checker.md",
+      "label": "Reality Checker",
+      "mode": "qa",
+      "spawn_as": "worker",
+      "aliases": ["reality-checker", "final-check", "production-readiness", "reality_checker"],
+      "auto_route": true,
+      "may_delegate_children": false,
+      "recommended_child_depth_limit": 0
+    },
+    "api_tester": {
+      "id": "testing-api-tester",
+      "relativePath": "testing/testing-api-tester.md",
+      "label": "API Tester",
+      "mode": "qa",
+      "spawn_as": "worker",
+      "aliases": ["api-tester", "api-test", "api-validator", "api_tester"],
+      "auto_route": true,
+      "may_delegate_children": false,
+      "recommended_child_depth_limit": 0
+    }
+  }
+}

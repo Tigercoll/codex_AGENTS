@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+OS_NAME="$(uname -s)"
+
+to_windows_path() {
+  local input_path="$1"
+  if command -v cygpath >/dev/null 2>&1; then
+    cygpath -w "$input_path"
+  else
+    printf '%s\n' "$input_path"
+  fi
+}
+
+case "$OS_NAME" in
+  Linux*|Darwin*)
+    exec "$SCRIPT_DIR/sync-agency-agents.sh" "$@"
+    ;;
+  MINGW*|MSYS*|CYGWIN*)
+    PS_SCRIPT_PATH="$(to_windows_path "$SCRIPT_DIR/sync-agency-agents.ps1")"
+    if command -v pwsh >/dev/null 2>&1; then
+      exec pwsh -File "$PS_SCRIPT_PATH" "$@"
+    elif command -v powershell.exe >/dev/null 2>&1; then
+      exec powershell.exe -ExecutionPolicy Bypass -File "$PS_SCRIPT_PATH" "$@"
+    else
+      echo "PowerShell is required on Windows-like environments." >&2
+      exit 1
+    fi
+    ;;
+  *)
+    echo "Unsupported OS: $OS_NAME" >&2
+    exit 1
+    ;;
+esac
