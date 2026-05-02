@@ -1,5 +1,7 @@
 # codex_AGENTS
 
+[中文说明 / Chinese README](./README.zh-CN.md)
+
 Global Codex agent rules plus the local sync toolkit used to mirror and map [`agency-agents`](https://github.com/msitarzewski/agency-agents) expert templates.
 
 ## What this repo contains
