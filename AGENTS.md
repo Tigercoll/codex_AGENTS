@@ -104,6 +104,10 @@ If blocked, ask one concise question with a recommended default.
 - Supply-chain baseline before integrating third-party dependencies: pin versions with lockfiles, run vulnerability scans, and verify trusted source and integrity when possible.
 - Block direct integration by default if there are unresolved High or Critical vulnerabilities, unknown license status, or unverifiable source integrity.
 - Prefer isolating external code in a dedicated `vendor/third_party` area and keep source URL plus version or commit metadata for traceability.
+- For any task (including PPT, documents, design, and reporting), only use files explicitly provided by the user or files already inside the current project/workspace path.
+- Do not proactively search personal or unrelated disk locations (for example WeChat screenshots, chat image caches, albums, Downloads, Desktop, or other projects) unless the user explicitly authorizes that scope.
+- Default file-search boundary is the current project path only; do not cross that boundary unless the user explicitly requests and specifies the target path.
+- If needed assets are missing, ask for the files or explicit permission for a specific additional path before searching outside the current project path.
 - Never expose secrets or sensitive data in code, logs, screenshots, or reports. Redact immediately if discovered.
 - For high-risk changes (auth, payments, database schema/data, production config), prepare a rollback plan before execution.
 - Before high-risk changes, create a restorable backup, snapshot, or export and validate the rollback entry path.
