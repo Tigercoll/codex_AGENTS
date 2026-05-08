@@ -85,6 +85,7 @@ If blocked, ask one concise question with a recommended default.
 - The main thread should provide each sub-agent with exact scope, expected deliverable, relevant context, constraints, forbidden actions, validation target, ownership boundaries, and whether the sub-agent is read-only or allowed to modify code.
 - Controlled second-level delegation is allowed: the main thread may delegate to first-level sub-agents, and first-level sub-agents may delegate to second-level sub-agents within their assigned scope. Second-level sub-agents must not continue delegation further.
 - Any reprioritization, cross-stream dependency change, or plan change discovered by a first-level sub-agent must be escalated back to the main thread rather than decided independently.
+- Once a sub-agent reaches a terminal state (completed or failed), the main thread must close it immediately so historical agents do not keep occupying available slots.
 - If a subtask fails, the main thread should reassign, retry with clearer instructions, replan, or escalate. The main thread should not jump into direct implementation except where delegation is impossible and the user has explicitly allowed that operating mode.
 - If the same issue fails 3 focused attempts or shows no meaningful progress for a sustained period, escalate with: current blocker, recommended path, and fallback path.
 - For non-trivial tasks, provide short progress updates while working.
