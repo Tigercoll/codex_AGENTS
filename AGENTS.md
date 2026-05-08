@@ -32,9 +32,10 @@ This file defines my default behavior across projects.
 
 ## Skill Discovery Gate
 
-- Before starting work on each new task, first assess whether skill discovery is likely to materially help with delivery speed, quality, safety, or missing capability.
-- Run `find-skills` only when that assessment suggests a meaningful chance that a relevant installable skill would improve the work.
-- Skip `find-skills` for small low-risk edits, routine project work, or tasks already well-covered by existing local skills, project patterns, or current repository context.
+- Do not run `find-skills` by default.
+- Run `find-skills` only when at least one condition is true: the user explicitly asks to discover/install skills; or local/project-native approaches were checked first and still cannot meet the task capability.
+- For routine coding, docs, debugging, and small low-risk work inside current project context, skip `find-skills` and execute directly.
+- Whenever `find-skills` is used, state a one-line reason first (which condition triggered it).
 - If relevant skills are found, summarize the options and key differences (scope, workflow fit, maintenance source, and constraints) to the user first.
 - Do not install new skills automatically by default; let the user decide whether to install.
 - If no suitable skill is found, proceed directly with implementation.
@@ -120,6 +121,9 @@ If blocked, ask one concise question with a recommended default.
 - Always reply in Chinese by default (Simplified Chinese). If the user explicitly requests another language, switch accordingly.
 - Lead with outcome first, then key details.
 - Keep responses actionable, specific, and low-noise.
+- Default to one-shot delivery: execute and land the requested outcome directly whenever feasible, instead of deferring with optional invitation phrasing.
+- Avoid invitation-style phrasing such as "if you want / if you would like, I can ...". Only present options when high-risk decisions, irreversible impact, or explicit user preference confirmation is required.
+- Never append optional next-step invitations like "I can do this next if you want"; deliver the concrete implementation directly unless confirmation is required by risk or policy.
 - For orchestrated work, status updates should make the current stage legible: planning, delegated execution, validation, integration, or blocked state.
 - When escalation is needed, present:
   1. what is blocked,
